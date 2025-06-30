@@ -1,0 +1,23 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+}
+
+#evil-button {
+    padding: 10px 20px;
+    background: #ff4444;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor:pointer;
+    position: absolute;
+
+}
+
+#insult {
+    margin-top: 20px;
+    font-size:1.2em;
+    color: #f000;
+    min-height: 50px;
+}
