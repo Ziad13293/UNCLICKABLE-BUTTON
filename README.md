@@ -1,3 +1,6 @@
 # Unclickable-Button
 Kill THAT DISGUSTING FLY!!
 
+Bug Squasher Game is a fun, interactive web game where players click on animated bugs to squash them before time runs out. Featuring multiple bug types with different speeds and health points (like quick 1-hit flies and tough 3-hit beetles), the game tracks your score and displays health bars for each bug. Built with HTML, CSS, and JavaScript, this project showcases dynamic DOM manipulation, event handling, and game logic, all wrapped in a playful bug-themed interface with humorous feedback messages. Perfect for practicing core web development skills while creating an entertaining experience!
+
+This project started as a simple Unclickable Button joke—a frustrating UI gag where a button dodged clicks while hurling insults. But after playtesting, I realized, why not turn this into a full game? The original button evolved into swarming bugs, the snarky messages became score feedback, and the core mechanic expanded with health bars, multiple enemies, and a timer. The biggest challenges? Making bugs move naturally (without overlapping) and balancing difficulty—those tanky beetles were added specifically to force players to strategize. Next up: sound effects and high score tracking!
