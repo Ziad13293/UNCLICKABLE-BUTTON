@@ -1,32 +1,67 @@
-const button = document.getElementById('evil-button');
-const insultText = document.getElementById('insult');
+const fly = document.getElementById('fly');
+const message = document.getElementById('message');
+const timer = document.getElementById('timer');
+const result = document.getElementById('result');
 
-const insults = [
-    "Wow, even my grandma clicks faster",
-    "Are you using a touchpad from 1995?",
-    "This is why you get syntax errors",
-    "Is your mouse battery dead?",
-    "Maybe stick to HTML tables..."
-];
+let energy = 100;
+let gameOver = false;
+let flyClickCount = 0;
 
-button.addEventListener('mouseover' ,  () => {
-    button.style.left = Math.random() * 80 + 'vw';
-    button.style.top = Math.random() * 80 + 'vh';
 
-     insultText.textContent = insults[Math.floor(Math.random() * insults.length)];
+function moveFly() {
+    if (gameOver) return;
+    
+    const speed = 1 + (energy / 20); 
+    const moveX = Math.random() * (window.innerWidth - 100);
+    const moveY = Math.random() * (window.innerHeight - 100);
+    
+    fly.style.left = moveX + 'px';
+    fly.style.top = moveY + 'px';
+    
+    setTimeout(moveFly, 2000 / speed);
+}
+
+
+const energyInterval = setInterval(() => {
+    if (energy > 0 && !gameOver) {
+        energy -= 2;
+        timer.textContent = `Energy: ${energy}%`;
+        fly.style.opacity = 0.6 + (energy / 250);
+        
+        if (energy <= 30) {
+            message.textContent = "The fly is getting sleepy...";
+            fly.style.animation = "buzz 0.4s infinite";
+        }
+        
+        if (energy <= 0) {
+            gameOver = true;
+            message.textContent = "QUICK! Click the exhausted fly!";
+            fly.style.animation = "none";
+            fly.textContent = "💤";
+            fly.style.fontSize = "60px";
+        }
+    }
+}, 800);
+
+
+fly.addEventListener('click', () => {
+    if (gameOver) {
+        flyClickCount++;
+        if (flyClickCount === 1) {
+            result.textContent = "🎉 FINALLY, You killed that thing!";
+            fly.textContent = "💥";
+            fly.style.fontSize = "80px";
+            fly.style.transform = "rotate(180deg)";
+            message.textContent = "Reload page to play again!";
+            clearInterval(energyInterval);
+        }
+    } else {
+        message.textContent = "Too slow! Wait until it's tired!";
+        setTimeout(() => {
+            if (!gameOver) message.textContent = "Keep waiting...";
+        }, 1500);
+    }
 });
 
-
-button.addEventListener('click', () => {
-    insultText.textContent = insults[Math.floor(Math.random() * insults.length)];
-})
-
-button.addEventListener('clcik', () => {
-    insultText.textContent = "CHEATER! Now you must debug my CSS.";
-    button.style.animation = "spin 0.5s infinite";
-});
-
-const runSound = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-running-fast-1919.mp3');
-button.addEeventListener('mouseover', () => {
-    runSound.play();
-});
+// Start game
+moveFly();

@@ -1,23 +1,46 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
     text-align: center;
-    margin-top: 50px;
+    background: #f5f5dc;
+    margin: 0;
+    padding: 20px;
+    user-select: none;
 }
 
-#evil-button {
-    padding: 10px 20px;
-    background: #ff4444;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor:pointer;
+.game-container {
+    min-height: 90vh;
+    position: relative;
+}
+
+#fly {
+    font-size: 50px;
     position: absolute;
-
+    cursor: pointer;
+    transition: all 0.7s;
+    animation: buzz 0.1s infinite;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
-#insult {
+@keyframes buzz {
+    0%, 100% { transform: translate(0, 0) rotate(-5deg); }
+    50% { transform: translate(3px, -3px) rotate(5deg); }
+}
+
+#message {
+    margin-top: 30px;
+    font-size: 1.5em;
+    color: #d35400;
+}
+
+#timer {
+    font-size: 1.3em;
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+#result {
+    font-size: 2em;
+    color: #27ae60;
     margin-top: 20px;
-    font-size:1.2em;
-    color: #f000;
-    min-height: 50px;
+    min-height: 60px;
 }
