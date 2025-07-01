@@ -4,43 +4,52 @@ body {
     background: #f5f5dc;
     margin: 0;
     padding: 20px;
+    overflow: hidden;
     user-select: none;
 }
 
 .game-container {
-    min-height: 90vh;
+    height: 100vh;
     position: relative;
 }
 
-#fly {
-    font-size: 50px;
+#game-area {
+    height: 80vh;
+    position: relative;
+    border: 3px dashed #ccc;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.bug {
     position: absolute;
     cursor: pointer;
-    transition: all 0.7s;
-    animation: buzz 0.1s infinite;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    transition: all 0.3s;
+    text-align: center;
 }
 
-@keyframes buzz {
-    0%, 100% { transform: translate(0, 0) rotate(-5deg); }
-    50% { transform: translate(3px, -3px) rotate(5deg); }
+.health-bar {
+    width: 50px;
+    height: 5px;
+    background: red;
+    margin: 2px auto;
+    transition: width 0.3s;
 }
 
-#message {
-    margin-top: 30px;
+#stats {
+    font-size: 1.2em;
+    margin: 10px;
+}
+
+#game-message {
     font-size: 1.5em;
     color: #d35400;
+    min-height: 30px;
+    margin-top: 10px;
 }
 
-#timer {
-    font-size: 1.3em;
-    color: #e74c3c;
-    font-weight: bold;
-}
-
-#result {
-    font-size: 2em;
-    color: #27ae60;
-    margin-top: 20px;
-    min-height: 60px;
-}
+/* Bug types */
+.fly { font-size: 30px; color: black; }
+.roach { font-size: 40px; color: brown; }
+.mosquito { font-size: 25px; color: gray; }
+.beetle { font-size: 50px; color: darkgreen; }

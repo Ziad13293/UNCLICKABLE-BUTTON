@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>KILL THAT THING!</title>
+    <title>Bug Squasher Game</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="game-container">
-        <h1>🪰 Catch the Annoying Fly!</h1>
-        <div id="fly">🪰</div>
-        <p id="message">It's too fast! Wait until it gets tired...</p>
-        <p id="timer">Energy: 100%</p>
-        <p id="result"></p>
+        <h1>🐜 Bug Squasher 🪳</h1>
+        <div id="game-area"></div>
+        <div id="stats">
+            <p>Time: <span id="time">60</span>s | Score: <span id="score">0</span></p>
+        </div>
+        <div id="game-message">Click the bugs to squash them!</div>
     </div>
     <script src="script.js"></script>
 </body>
