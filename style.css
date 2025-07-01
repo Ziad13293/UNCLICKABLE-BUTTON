@@ -1,23 +1,55 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
     text-align: center;
-    margin-top: 50px;
+    background: #f5f5dc;
+    margin: 0;
+    padding: 20px;
+    overflow: hidden;
+    user-select: none;
 }
 
-#evil-button {
-    padding: 10px 20px;
-    background: #ff4444;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor:pointer;
+.game-container {
+    height: 100vh;
+    position: relative;
+}
+
+#game-area {
+    height: 80vh;
+    position: relative;
+    border: 3px dashed #ccc;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.bug {
     position: absolute;
-
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
 }
 
-#insult {
-    margin-top: 20px;
-    font-size:1.2em;
-    color: #f000;
-    min-height: 50px;
+.health-bar {
+    width: 50px;
+    height: 5px;
+    background: red;
+    margin: 2px auto;
+    transition: width 0.3s;
 }
+
+#stats {
+    font-size: 1.2em;
+    margin: 10px;
+}
+
+#game-message {
+    font-size: 1.5em;
+    color: #d35400;
+    min-height: 30px;
+    margin-top: 10px;
+}
+
+/* Bug types */
+.fly { font-size: 30px; color: black; }
+.roach { font-size: 40px; color: brown; }
+.mosquito { font-size: 25px; color: gray; }
+.beetle { font-size: 50px; color: darkgreen; }
